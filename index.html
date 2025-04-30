@@ -90,7 +90,7 @@
         </tr>
         <tr>
             <th scope="row">
-                <a class="badge badge-warning" href="https://bnb.by/kursy-valyut/imbank/">BNB</a>
+                <a class="badge badge-warning" href="https://bnb.by/docs-for-news/Process-konvertacii-s-ispolsovaniem-kartochek.pdf">BNB</a>
                 <!--                                <span style="font-size: 0.3em" class="badge badge-light bg-sm">EUR|EUR</span>-->
             </th>
             <td>
@@ -411,14 +411,14 @@
                         let currencyConverterData = currencyConverter.substring(currencyConverter.indexOf("{"), currencyConverter.lastIndexOf("}}") + 2);
                         let rates = JSON.parse(currencyConverterData.replaceAll("'", '"'));
 
-                        let rateUsdEur = Number.parseFloat(rates['BUY']['EUR']['USD'][0]['value']).toFixed(4);
-                        let rateUsdPln = Number.parseFloat(rates['SELL']['USD']['PLN'][0]['value']).toFixed(4);
-                        let rateEurPln = Number.parseFloat(rates['SELL']['EUR']['PLN'][0]['value']).toFixed(4);
+                        // let rateUsdEur = Number.parseFloat(rates['BUY']['EUR']['USD'][0]['value']).toFixed(4);
+                        // let rateUsdPln = Number.parseFloat(rates['SELL']['USD']['PLN'][0]['value']).toFixed(4);
+                        // let rateEurPln = Number.parseFloat(rates['SELL']['EUR']['PLN'][0]['value']).toFixed(4);
                         let rateUsdByn = Number.parseFloat(rates['SELL']['USD']['BYN'][0]['value']).toFixed(4);
 
-                        document.getElementById("USD-EUR-BGPB").innerText = rateUsdEur;
-                        document.getElementById("USD-PLN-BGPB").innerText = rateUsdPln;
-                        document.getElementById("EUR-PLN-BGPB").innerText = rateEurPln;
+                        // document.getElementById("USD-EUR-BGPB").innerText = rateUsdEur;
+                        // document.getElementById("USD-PLN-BGPB").innerText = rateUsdPln;
+                        // document.getElementById("EUR-PLN-BGPB").innerText = rateEurPln;
                         document.getElementById("USD-BYN-BGPB").innerText = rateUsdByn;
                     })
 
@@ -639,7 +639,7 @@
 
     function getExchangeRates() {
         updateBNB();
-        updateAlfa();
+        // updateAlfa();
         updateBGPB();
         updateMC();
         updateVisa();

@@ -241,6 +241,25 @@
         return fetch(proxyUrl + url);
     }
 
+    function fetchDirectly(url, params, cors) {
+        const fetchParams = {
+            cors: 'no-cors',
+            headers: {
+                'User-Agent': userAgent,
+                accept: 'application/json',
+            },
+            method: 'GET',
+        };
+
+        if (params != null && params !== '') {
+            console.log(`URL for fetch: ${url}${params}${fetchParams}`);
+            return fetch(url + params, fetchParams);
+        } else {
+            console.log(`URL for fetch: ${url}${fetchParams}`);
+            return fetch(url, fetchParams);
+        }
+    }
+
 
     function requestPostBGPB() {
         const btnUpdate = document.getElementById("btnUpdateBGPB");
@@ -312,7 +331,7 @@
 
         let urlBNB = 'https://bnb.by/kursy-valyut/imbank/';
 
-        fetchWithProxy(urlBNB, '', true)
+        fetchDirectly(urlBNB, '', true)
             .then(response => {
                 response.text()
                     .then(res => {
@@ -400,7 +419,7 @@
 
         let urlBGPB = 'https://belgazprombank.by/about/kursi_valjut/';
 
-        fetchWithProxy(urlBGPB, '', true)
+        fetchDirectly(urlBGPB, '', true)
             .then(response => {
                 response.text()
                     .then(res => {
@@ -457,7 +476,7 @@
         });
         rateUsdEur.innerText = null;
 
-        fetchWithProxy(urlMC, urlParamUSDtoEURbyMC, true)
+        fetchDirectly(urlMC, urlParamUSDtoEURbyMC, true)
             .then(response => {
                 response.json()
                     .then(res => {
@@ -477,7 +496,7 @@
         // });
         // rateUsdByn.innerText = null;
         //
-        // fetchWithProxy(urlMC, urlParamUSDtoBYNbyMC, true)
+        // fetchDirectly(urlMC, urlParamUSDtoBYNbyMC, true)
         //     .then(response => {
         //         response.json()
         //             .then(res => {
@@ -498,7 +517,7 @@
         rateEurPln.innerText = null;
         rateEurPlnBnb.innerText = null;
 
-        fetchWithProxy(urlMC, urlParamEURtoPLNbyMC, true)
+        fetchDirectly(urlMC, urlParamEURtoPLNbyMC, true)
             .then(response => {
                 response.json()
                     .then(res => {
@@ -520,7 +539,7 @@
         });
         rateUsdPln.innerText = null;
 
-        fetchWithProxy(urlMC, urlParamUSDtoPLNbyMC, true)
+        fetchDirectly(urlMC, urlParamUSDtoPLNbyMC, true)
             .then(response => {
                 response.json()
                     .then(res => {
@@ -564,7 +583,7 @@
         });
         rateUsdEur.innerText = null;
 
-        fetchWithProxy(urlVISA, urlParamEURtoUSDbyVISA, true)
+        fetchDirectly(urlVISA, urlParamEURtoUSDbyVISA, true)
             .then(response => {
                 response.json()
                     .then(res => {
@@ -594,7 +613,7 @@
         rateUsdPln.innerText = null;
         rateUsdPlnAlfa.innerText = null;
 
-        fetchWithProxy(urlVISA, urlParamPLNtoUSDbyVISA, true)
+        fetchDirectly(urlVISA, urlParamPLNtoUSDbyVISA, true)
             .then(response => {
                 response.json()
                     .then(res => {
@@ -625,7 +644,7 @@
         });
         rateEurPln.innerText = null;
 
-        fetchWithProxy(urlVISA, urlParamPLNtoEURbyVISA, true)
+        fetchDirectly(urlVISA, urlParamPLNtoEURbyVISA, true)
             .then(response => {
                 response.json()
                     .then(res => {
